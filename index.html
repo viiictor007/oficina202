@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oficina 202 | Diagnóstico Inteligente para Computadores</title>
+  <meta name="description" content="Descubra o que há de errado com o seu computador em minutos: diagnóstico com IA, montagem de PCs, BIOS, drivers e acesso remoto seguro.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="#inicio" class="logo"><span class="logo-mark">202</span> Oficina 202</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav id="menu">
+      <a href="#diagnostico">Diagnóstico por chat</a>
+      <a href="app.html">Aplicativo de diagnóstico</a>
+      <a href="montar.html">Montar meu PC</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Diagnóstico com IA • Gratuito e sem cadastro</p>
+      <h1>Descubra o que há de errado com o seu computador. Sem termos difíceis.</h1>
+      <p class="lead">Converse com nossa IA de diagnóstico: ela pergunta o que importa, afunila as causas e entrega um pré-diagnóstico claro. Tudo automático, na hora, sem esperar por ninguém.</p>
+      <ul class="hero-points">
+        <li>✔ Gratuito e sem cadastro</li>
+        <li>✔ Você sabe que é uma IA e o que ela pode (e não pode) afirmar</li>
+        <li>✔ Nunca pedimos senhas nem dados pessoais</li>
+      </ul>
+    </div>
+
+    <div class="chat" id="diagnostico" aria-label="Chat de diagnóstico com IA">
+      <div class="chat-head">
+        <span class="dot"></span>
+        <div><strong>Diagnóstico com IA</strong><small>Triagem automática · indica causas prováveis, não é um laudo definitivo</small></div>
+      </div>
+      <div class="chat-box" id="chatBox" aria-live="polite"></div>
+      <div class="chips" id="chatChips">
+        <button type="button" data-q="Meu computador está muito lento">Está muito lento</button>
+        <button type="button" data-q="Meu computador trava ou reinicia sozinho">Trava ou reinicia</button>
+        <button type="button" data-q="Meu computador esquenta demais e faz barulho">Esquenta e faz barulho</button>
+        <button type="button" data-q="Aparece tela azul no meu computador">Tela azul</button>
+        <button type="button" data-q="Quero ajuda para escolher peças ou montar um PC">Quero montar um PC</button>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <textarea id="chatInput" rows="1" placeholder="Descreva o problema com suas palavras…" maxlength="1500" aria-label="Sua mensagem"></textarea>
+        <button type="submit" id="chatSend" class="btn btn-small">Enviar</button>
+      </form>
+      <p class="chat-note">🔒 Não envie senhas ou dados bancários. Você está conversando com uma IA.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section tight" id="ferramentas">
+  <div class="container">
+    <h2>Três ferramentas, para quem usa e para técnicos</h2>
+    <p class="section-sub">Tudo funciona sozinho, sem custo e sem cadastro: você usa e decide o que fazer com o resultado.</p>
+    <div class="cards cards-3">
+      <a class="card tool" href="#diagnostico"><div class="icon">💬</div><h3>Diagnóstico por conversa</h3><p>Descreva o problema com suas palavras. A IA pergunta o essencial e aponta a causa mais provável.</p><span class="go">Conversar agora →</span></a>
+      <a class="card tool" href="app.html"><div class="icon">🩺</div><h3>Aplicativo de diagnóstico</h3><p>Check-up automático de BIOS, drivers, memória, discos e erros do Windows. O relatório fica no seu computador.</p><span class="go">Ver como funciona →</span></a>
+      <a class="card tool" href="montar.html"><div class="icon">🧩</div><h3>Montar meu PC</h3><p>Diga o uso e o orçamento. Receba uma lista de peças compatíveis e atalhos para buscar nas lojas.</p><span class="go">Montar minha lista →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="laudo">
+  <div class="container laudo-grid">
+    <div>
+      <h2>O que a IA avalia</h2>
+      <p class="section-sub">Durante a conversa, a IA investiga os problemas mais comuns em computadores e explica cada achado em linguagem simples. Ao final você recebe um pré-diagnóstico com causa provável, nível de confiança e o que fazer.</p>
+      <ul class="check">
+        <li>Superaquecimento e queda de desempenho por calor</li>
+        <li>Memória RAM fora da velocidade correta ou com falha</li>
+        <li>Saúde e espaço do armazenamento (SSD / HD)</li>
+        <li>Travamentos, reinícios e telas azuis</li>
+        <li>Poeira, ventilação e pasta térmica</li>
+        <li>Drivers, BIOS e Windows desatualizados</li>
+        <li>Vírus e programas indesejados</li>
+      </ul>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <div class="status-head"><span class="dot"></span> Exemplo de pré-diagnóstico</div>
+      <div class="status-row"><span class="lbl">Causa mais provável<small>o que mais explica os sintomas</small></span><b class="ok warn">Poeira / pasta térmica</b></div>
+      <div class="status-row"><span class="lbl">Outra possibilidade<small>a investigar em seguida</small></span><b class="ok warn">Ventilação do gabinete</b></div>
+      <div class="status-row"><span class="lbl">Nível de confiança<small>quão segura é a conclusão</small></span><b class="ok warn">Média</b></div>
+      <div class="status-row"><span class="lbl">O que fazer agora<small>passos simples e seguros</small></span><b class="ok">Evitar uso pesado</b></div>
+      <div class="status-row"><span class="lbl">Para confirmar<small>conferir se o problema some</small></span><b class="ok">Limpar e medir de novo</b></div>
+      <p class="card-note">Exemplo ilustrativo. A IA faz uma triagem: indica causas prováveis e o nível de confiança, não um laudo definitivo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="processo">
+  <div class="container">
+    <h2>Como funciona</h2>
+    <p class="section-sub">Tudo automático: rápido, gratuito e sem esperar por ninguém.</p>
+    <ol class="steps">
+      <li><span class="num">1</span><h3>Conte o problema</h3><p>Descreva com suas palavras o que está acontecendo no chat. Sem termos técnicos.</p></li>
+      <li><span class="num">2</span><h3>A IA afunila</h3><p>Ela faz perguntas, uma por vez, até chegar à causa mais provável.</p></li>
+      <li><span class="num">3</span><h3>Pré-diagnóstico</h3><p>Você recebe a causa provável, o nível de confiança e o que fazer agora.</p></li>
+      <li><span class="num">4</span><h3>Resolva e confira</h3><p>Siga os passos indicados e, se quiser, rode o aplicativo de diagnóstico para conferir o resultado no seu computador.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section alt" id="diferenciais">
+  <div class="container">
+    <h2>Nossos compromissos</h2>
+    <div class="cards cards-4">
+      <article class="card plain"><h3>Transparência sobre a IA</h3><p>Você sabe que está falando com uma IA, o que ela avalia e que ela faz triagem, não laudo definitivo.</p></article>
+      <article class="card plain"><h3>Privacidade</h3><p>A IA nunca pede senhas nem dados bancários. Compartilhe só o necessário para o diagnóstico.</p></article>
+      <article class="card plain"><h3>Linguagem simples</h3><p>Cada achado vem explicado sem termos difíceis, com o nível de confiança e o que fazer em seguida.</p></article>
+      <article class="card plain"><h3>Gratuito e sem cadastro</h3><p>Você usa tudo sem criar conta, sem informar telefone ou e-mail e sem ser contatado depois.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container narrow">
+    <h2>Dúvidas frequentes</h2>
+    <details><summary>Estou falando com uma pessoa?</summary><p>Não. O chat é uma inteligência artificial que faz a triagem do problema, sem ninguém entrando em contato com você.</p></details>
+    <details><summary>A IA acessa o meu computador?</summary><p>Não. Nesta etapa ela só conversa com você e se baseia no que você descreve. Qualquer verificação direta na máquina só acontece com a sua autorização expressa.</p></details>
+    <details><summary>O diagnóstico da IA é 100% confiável?</summary><p>Ele é um ponto de partida: indica as causas mais prováveis e informa o nível de confiança. Defeitos físicos só são confirmados testando ou trocando a peça.</p></details>
+    <details><summary>Preciso pagar pelo chat?</summary><p>Não. Todas as ferramentas são gratuitas e não exigem cadastro.</p></details>
+    <details><summary>Meus dados ficam guardados?</summary><p>Não guardamos nada em conta nem em banco de dados, e não pedimos cadastro. No modo demonstração, as conversas não saem do seu navegador. Quando a IA está ativa, as mensagens são enviadas ao serviço de IA apenas para gerar a resposta, então evite compartilhar informações pessoais. O relatório do aplicativo fica só no seu computador.</p></details>
+    <details><summary>Vocês atendem notebooks também?</summary><p>Sim, tanto na triagem quanto em diagnóstico, manutenção e upgrades possíveis.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>© <span id="ano"></span> Oficina 202. Triagem feita por inteligência artificial.</span>
+    <a href="#inicio">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="demo.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

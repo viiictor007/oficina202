@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Montar meu PC | Oficina 202</title>
+  <meta name="description" content="Diga o que você vai fazer e quanto quer gastar: a IA monta a lista de peças compatíveis e leva você direto às lojas.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html" class="logo"><span class="logo-mark">202</span> Oficina 202</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav id="menu">
+      <a href="index.html#diagnostico">Diagnóstico por chat</a>
+      <a href="app.html">Aplicativo de diagnóstico</a>
+      <a href="montar.html" class="ativo btn btn-small">Montar meu PC</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Recomendador de peças</p>
+    <h1>Qual PC é o ideal para o que você faz?</h1>
+    <p class="lead">Conte o objetivo e o orçamento. A IA monta uma lista de peças que combinam entre si, o site confere a compatibilidade e cada peça tem atalhos para buscar nas principais lojas.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="container build-grid">
+    <form id="buildForm" class="form card-form">
+      <h2 class="form-title">Seu pedido</h2>
+
+      <fieldset>
+        <legend>O que você quer?</legend>
+        <label class="radio"><input type="radio" name="tipo" value="desktop" checked> Montar um desktop</label>
+        <label class="radio"><input type="radio" name="tipo" value="notebook"> Escolher um notebook</label>
+        <label class="radio"><input type="radio" name="tipo" value="upgrade"> Melhorar o PC que já tenho</label>
+      </fieldset>
+
+      <label>Uso principal
+        <select name="objetivo" required>
+          <option value="">Selecione…</option>
+          <option>Jogos</option>
+          <option>Edição de vídeo e foto</option>
+          <option>Design 3D / renderização</option>
+          <option>Programação e estudos</option>
+          <option>Inteligência artificial / ciência de dados</option>
+          <option>Trabalho e escritório</option>
+          <option>Uso geral (navegar, assistir, estudar)</option>
+          <option>Transmissão ao vivo (streaming)</option>
+        </select>
+      </label>
+
+      <label>Orçamento total (R$)
+        <input type="number" name="orcamento" min="500" max="200000" step="100" placeholder="ex.: 5000" required>
+      </label>
+
+      <label>Detalhes do uso <span class="opt">(quanto mais específico, melhor)</span>
+        <textarea name="detalhes" rows="3" maxlength="600" placeholder="ex.: quero jogar Valorant e GTA V em Full HD, 144 Hz; também uso o Premiere de vez em quando"></textarea>
+      </label>
+
+      <label>Peças que você já tem <span class="opt">(opcional)</span>
+        <textarea name="possui" rows="2" maxlength="400" placeholder="ex.: monitor 24&quot;, SSD de 500 GB, gabinete ATX"></textarea>
+      </label>
+
+      <div class="two">
+        <label>Processador
+          <select name="cpuMarca"><option value="">Tanto faz</option><option>AMD</option><option>Intel</option></select>
+        </label>
+        <label>Placa de vídeo
+          <select name="gpuMarca"><option value="">Tanto faz</option><option>NVIDIA</option><option>AMD</option><option>Intel</option></select>
+        </label>
+      </div>
+
+      <label>Outras preferências <span class="opt">(opcional)</span>
+        <input type="text" name="extras" maxlength="300" placeholder="ex.: silencioso, gabinete pequeno, quero poder fazer upgrade depois">
+      </label>
+
+      <button type="submit" class="btn" id="buildBtn">Montar minha lista</button>
+      <p class="chat-note" style="padding:0;background:none">Não pedimos nome, e-mail nem telefone. As informações acima vão à IA só para gerar a recomendação.</p>
+    </form>
+
+    <div id="result" aria-live="polite">
+      <div class="empty">
+        <div class="icon">🧩</div>
+        <h3>Sua lista aparece aqui</h3>
+        <p>Preencha o pedido ao lado. A resposta leva alguns segundos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>© <span id="ano"></span> Oficina 202. Recomendações geradas por inteligência artificial.</span>
+    <a href="index.html">Voltar ao início</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="demo.js"></script>
+<script src="montar.js"></script>
+</body>
+</html>

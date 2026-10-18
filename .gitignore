@@ -1,0 +1,10 @@
+# NUNCA enviar para o GitHub:
+
+# Chave da API (segredo)
+.env
+
+# Relatórios gerados pelo aplicativo de diagnóstico (dados do computador de quem rodou).
+# O aplicativo recria a pasta sozinho quando for executado.
+relatorios/
+
+node_modules/

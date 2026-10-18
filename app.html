@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplicativo de Diagnóstico | Oficina 202</title>
+  <meta name="description" content="Aplicativo gratuito e de leitura apenas que verifica BIOS, drivers, memória, discos, temperaturas e erros do Windows e gera um relatório no próprio computador.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html" class="logo"><span class="logo-mark">202</span> Oficina 202</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav id="menu">
+      <a href="index.html#diagnostico">Diagnóstico por chat</a>
+      <a href="app.html" class="ativo btn btn-small">Aplicativo de diagnóstico</a>
+      <a href="montar.html">Montar meu PC</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Aplicativo de diagnóstico · Windows</p>
+    <h1>Um check-up completo do seu computador, em 1 minuto.</h1>
+    <p class="lead">Verifica BIOS, drivers, memória RAM, discos, temperaturas e o histórico de erros do Windows, e entrega um relatório <strong>no próprio computador</strong>, em linguagem simples para quem usa e com os dados completos para quem entende do assunto.</p>
+    <div class="hero-actions">
+      <a class="btn" href="diagnostico.bat" download>1. Baixar o aplicativo (.bat)</a>
+      <a class="btn btn-ghost" href="diagnostico.ps1" download>2. Baixar o script (.ps1)</a>
+    </div>
+    <p class="hint">Salve os dois arquivos <strong>na mesma pasta</strong> e dê dois cliques no arquivo .bat.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="container">
+    <h2>Por que você pode confiar</h2>
+    <div class="cards cards-3">
+      <article class="card plain"><h3>Só lê, nunca altera</h3><p>Ele não instala nada, não muda configurações e não apaga arquivos. Apenas consulta o que o Windows já sabe sobre o computador.</p></article>
+      <article class="card plain"><h3>Nada sai do seu computador</h3><p>O relatório é salvo em uma pasta local. Só vai para a IA se <em>você</em> escolher enviar.</p></article>
+      <article class="card plain"><h3>Código aberto para conferir</h3><p>É um arquivo de texto (.ps1). Abra no Bloco de Notas e confira cada linha antes de executar. Não é um programa "caixa-preta".</p></article>
+    </div>
+
+    <div class="two-col">
+      <div class="panel">
+        <h3>O que o aplicativo lê</h3>
+        <ul class="check">
+          <li>Modelo do computador, versão do Windows e da BIOS</li>
+          <li>Processador, memória RAM (velocidade e quantidade) e placa de vídeo</li>
+          <li>Saúde, espaço livre e desgaste de SSD/HD</li>
+          <li>Drivers antigos ou com erro</li>
+          <li>Telas azuis, desligamentos inesperados e erros de hardware (30 dias)</li>
+          <li>Temperaturas disponíveis, antivírus, atualizações, bateria (notebooks)</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>O que ele NÃO lê nem envia</h3>
+        <ul class="nope">
+          <li>Seus arquivos, fotos, documentos ou histórico de navegação</li>
+          <li>Senhas, e-mails ou dados de contas</li>
+          <li>Nome do computador, nome de usuário, números de série, IP e MAC</li>
+          <li>Nada é enviado pela internet pelo aplicativo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2>Como usar</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><h3>Baixe</h3><p>Baixe os dois arquivos e coloque na mesma pasta.</p></li>
+      <li><span class="num">2</span><h3>Execute</h3><p>Dois cliques no <b>diagnostico.bat</b>. Para dados extras (SMART do disco, temperaturas), clique com o botão direito e escolha <i>Executar como administrador</i>.</p></li>
+      <li><span class="num">3</span><h3>Veja o relatório</h3><p>Em cerca de 1 minuto ele abre no navegador, na pasta <b>relatorios</b>.</p></li>
+      <li><span class="num">4</span><h3>Entenda e decida</h3><p>Leia os achados ou peça à IA (abaixo) para explicar e dizer o que resolver primeiro.</p></li>
+    </ol>
+    <div class="note-box"><strong>Aviso do Windows:</strong> como o arquivo não vem de uma empresa com certificado digital, o Windows pode exibir um aviso do SmartScreen. Se você baixou deste site e conferiu o conteúdo do .ps1, clique em "Mais informações" e depois "Executar assim mesmo".</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container build-grid">
+    <div>
+      <h2>Quer que a IA explique o seu relatório?</h2>
+      <p class="section-sub">Escolha o arquivo <b>.json</b> gerado na pasta <i>relatorios</i>. Ele é lido <strong>aqui no seu navegador</strong>, e você vê exatamente o que seria enviado antes de decidir.</p>
+      <label class="file-pick">
+        <input type="file" id="jsonFile" accept=".json,application/json">
+        <span>📄 Escolher o relatório (.json)</span>
+      </label>
+      <div id="preview" hidden>
+        <p class="preview-title">Resumo que será enviado à IA <span>(sem nome do computador, usuário ou números de série)</span></p>
+        <pre id="previewText"></pre>
+        <button type="button" class="btn" id="sendReport">Enviar este resumo à IA</button>
+      </div>
+      <p id="fileError" class="file-error" hidden></p>
+      <p class="hint-dark">Não quer enviar nada? Tudo bem: o relatório HTML já se explica sozinho e fica só no seu computador.</p>
+    </div>
+
+    <div class="chat" aria-label="Chat para explicar o relatório">
+      <div class="chat-head"><span class="dot"></span><div><strong>IA de diagnóstico</strong><small>Triagem automática · indica causas prováveis, não é um laudo definitivo</small></div></div>
+      <div class="chat-box" id="chatBox" aria-live="polite" data-saudacao="Olá! Escolha o seu relatório ao lado e clique em enviar, ou me descreva o problema direto aqui. Eu explico cada ponto em linguagem simples e digo o que vale resolver primeiro."></div>
+      <div class="chips" id="chatChips" hidden></div>
+      <form class="chat-form" id="chatForm">
+        <textarea id="chatInput" rows="1" placeholder="Escreva sua dúvida…" maxlength="1500" aria-label="Sua mensagem"></textarea>
+        <button type="submit" id="chatSend" class="btn btn-small">Enviar</button>
+      </form>
+      <p class="chat-note">🔒 Não envie senhas ou dados bancários. Você está conversando com uma IA.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>© <span id="ano"></span> Oficina 202. Triagem feita por inteligência artificial.</span>
+    <a href="index.html">Voltar ao início</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="demo.js"></script>
+<script src="chat.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
